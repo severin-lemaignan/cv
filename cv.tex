@@ -1,0 +1,140 @@
+
+%% start of file `template_en.tex'.
+%% Copyright 2006-1008 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[10pt,a4paper]{moderncv}
+
+% moderncv themes
+%\moderncvtheme[green]{casual}                 % optional argument are 'blue' (default), 'orange', 'red', 'green', 'grey' and 'roman' (for roman fonts, instead of sans serif fonts)
+\moderncvtheme[green]{classic}                % idem
+
+% character encoding
+\usepackage[utf8]{inputenc}                   % replace by the encoding you are using
+
+% adjust the page margins
+\usepackage[scale=0.8]{geometry}
+\setlength{\hintscolumnwidth}{3.5cm}						% if you want to change the width of the column with the dates
+%\AtBeginDocument{\setlength{\maketitlenamewidth}{6 cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+\AtBeginDocument{\recomputelengths}                     % required when changes are made to page layout lengths
+
+% personal data
+\firstname{Séverin}
+\familyname{Lemaignan}
+\title{PhD student in Cognitive Robotics}               % optional, remove the line if not wanted
+%\address{LAAS-CNRS}{31077 Toulouse}    % optional, remove the line if not wanted
+
+\mobile{+33(0)6 45 91 3 97}                    % optional, remove the line if not wanted
+%\phone{phone (optional)}                      % optional, remove the line if not wanted
+%\fax{fax (optional)}                          % optional, remove the line if not wanted
+\email{severin.lemaignan@laas.fr}                      % optional, remove the line if not wanted
+\extrainfo{\url{www.laas.fr/~slemaign} \\ Born on 17 Jan. 1983}{}    % optional, remove the line if not wanted
+
+\photo[64pt]{id.png}                         % '64pt' is the height the picture must be resized to and 'picture' is the name of the picture file; optional, remove the line if not wanted
+%\quote{Doctorante en Sciences Cognitives}                 % optional, remove the line if not wanted
+
+%\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+
+
+\maketitle
+
+
+\section{Scientific Interests - PhD Project}
+\cvline{PhD Title}{\emph{Cognitive Architectures for Human-Robot Interaction}}
+\cvline{Description}{\small Knowledge representation systems and their integration into the software architecture of service robots, with applications like natural language processing or perspective-aware decision making.}
+\cvline{Keywords}{\textbf{Robotic Cognition}, \textbf{Ontologies}, \textbf{Human-Robot Interaction}, \textbf{Grounding}, \textbf{Control Architectures}}
+
+\section{Education and Research Activities}
+%\cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}
+\cventry{2008-- ... }{PhD in Cognitive Robotics}{LAAS-CNRS, Toulouse, France / IAS-TUM, Munich, Germany}{}{}{Supervisors: Pr. Rachid Alami, CNRS Senior Researcher, Pr. Michael Beetz, TUM Senior Researcher}
+\cventry{2006--2007}{Research Engineer}{Institut National de Recherche en Informatique et Automatique (INRIA)}{}{}{Development of semantic-aware control architectures for autonomous vehicles.}
+\cventry{2002--2006}{German-French Engineering degree}{Karlsruhe TH, Fakultät für Maschinenbau / École Nationale Supérieur des Arts et Métiers}{}{Gold Medal (top ten students)}{Final project: Ontologies and distributed systems for industrial processes.}
+%\cvline{Fundings}{ 1 year international student mobility grant  (Explo'RA Sup, Rhone Alpes region) }
+\cventry{2004--2005}{M.S degree IT-Environments for Human Education ("Environnements Informatiques pour l'Apprentissage Humain")}{University Paris V, College of Mathematics}{}{With Honours}{}% arguments 3 to are optional
+%\cvline{Fundings}{ 1 year Honors scholarship from the French government (CROUS) }
+%\cventry{2003--2006}{B.A in Cognitive Sciences}{University Lumiere Lyon 2}{Lyon, France}{}{With Honors}% arguments 3 to are optional
+%\cventry{2003}{Baccalauréat Scientifique}{Lycée Louis Aragon}{Givors, Académie de Lyon (69), France}{}{With Honors}% arguments 3 to are optional
+
+
+%\section{International Experience}
+%\cventry{2008--2011}{Germany - 6 months, Technical University of Munich} {PhD joint supervision}{}{}{}{}                % arguments 3 to 6 are optional
+%\cventry{2007}{Switzerland - 4 months, Paul Scherrer Institute, Villigen}{Engineering degree internship: Design of a wave physics experiment at the SLS synchrotron}{}{}{}                % arguments 3 to 6 are optional
+
+\section{Selected Publications}
+\cvline{}{See my website for the complete list of publications.}
+\subsection {International peer-reviewed journals }
+\cvlistitem{Lemaignan, S. and Ros, R. and Sisbot, E. A. Alami, R. and Beetz M., \textbf{Grounding the Interaction: Anchoring Situated Discourse in Everyday Human-Robot Interaction}, \textit{International Journal of Social Robotics}, 2011.}
+\subsection {Book chapters }
+\cvlistitem{Lemaignan, S. and Alami, R. and Pandey, A. K. and Warnier, M. and Guitton, J. , \textbf{Towards Grounding Human-Robot Interaction} in \textit{Bridges between the Methodological and Practical Work of the Robotics and Cognitive Systems Communities - From Sensors to Concepts} Editors: Amirat, T. and Chibani, A. and Zarri, G. P.. Springer Publishing. 2012.}
+\subsection {Conference Articles}
+\cvlistitem{Lemaignan, S. and Ros, R. and Alami, R. and Beetz, M., \textbf{What are you talking about? Grounding dialogue in a perspective-aware robotic architecture}, \textit{ROMAN}, 2011.}
+\cvlistitem{Lemaignan, S. and Ros, R. and Mösenlechner, L. and Alami, R. and Beetz, M., \textbf{ORO, a knowledge management module for cognitive architectures in robotics}, \textit{IROS} 2010.}
+\cvlistitem{Ros, R. and Lemaignan, S. and Sisbot, E. A. and Alami, R. and Steinwender, J. and Hamann, K. and Warneken, F., \textbf{Which One? Grounding the Referent Based on Efficient Human-Robot Interaction}, \textit{ROMAN}. 2010. \textbf{Best paper award}.}
+
+
+\section{Teaching Experience}
+%\subsection{Vocational}
+\cventry{2008--2011}{Teacher assistant}{INSA Toulouse}{}{}{Tutorials in Prolog, Ontology Modeling, Java, ADA, SQL}
+\cventry{2006--2007}{Teacher assistant}{École des Mines de Paris}{}{}{Tutorials in mechatronics}
+\cventry{2006-- ...}{Educative Robotics Training}{}{}{}{As head of the Educational Robotics section at the non-for-profit Planète Sciences organization, I've tutored numerous classes on Educational Robotics with teachers and science communicators.}      % arguments 3 to 6 are optional
+
+\section{Technical Skills and Spoken Languages}
+
+\cvcomputer{Robotics}{ROS, GenoM, YARP.\\MORSE simulator.\\Experienced PR2 robot user.}    {OS}{Linux}
+\cvcomputer{Computing Sciences}{Python/C++/Java, SmallTalk}    {Others}{Latex, VIM, Blender, Inkscape,...}
+%\cvcomputer{}{}{}{}
+
+\subsection{Languages}
+\cvlanguage{French}{Native}{}
+\cvlanguage{English}{Expert}{TOEIC score 925/990}
+\cvlanguage{German}{Advanced}{}
+\cvlanguage{Spanish}{Novice}{}
+
+
+\section{Additional Informations}
+\subsection {Involvement in Associations}
+%\cventry{2007--...}{InCOGnu - Association des Etudiants et Doctorants en Sciences Cognitives du Grand Toulouse - Club CNRS "Sciences et Citoyen"} {}{}{\textit{www.incognu.fr}}{}  % arguments 3 to 6 are optional
+%\cvlistitem[]{ Cognitive Science Students and Young Researchers Associations }\\
+\cventry{2008--2011}{Vice-President of Toulouse Cognitive Science Student Association }{}{}{\url{www.incognu.fr}}{}  % arguments 3 to 6 are optional
+
+\cventry{2000-- ...}{Executive Committee member for the organization of the french "Cognitive Science Young Researchers Conference"  }{http://fresco.risc.cnrs.fr/cjcsc2009/}{}{} {} % arguments 3 to 6 are optional
+\cventry{2007--2008}{Treasurer for the French National Cognitive Science Student Federation }{Financial work at the national level}{\small{}}{}{} % arguments 3 to 6 are optional
+%\cventry{2007--...}{Executive Comitte member of Toulouse Cognitive Science Student Association} { www.incognu.fr}{}{}{}
+%\cventry{2005--2006}{Assistant Treasurer of Lyon Cognitive Science Student Association}{}{\small{Financial work at the regional level}}{}{} % arguments 3 to 6 are optional
+%\cventry{}{Member of "Development of Professional Opportunities" committee}{} {\small{Valorization of Cognitive Science towards companies, organization of seminar }}{}{} % arguments 3 to 6 are optional
+\cventry{2005--2010}{Executive Committee member of the French National Cognitive Science Student Federation }{}{}{}{} 
+                 
+%\subsection {Other association}
+%\cvlistitem[]{Art and Science Association for Popular Education, {\textit{www.leschemins-buissonniers.fr}}}
+%\cventry{2008--...}{}{}{}{\textit{www.leschemins-buissonniers.fr}}{}  % arguments 3 to 6 are optional
+%\cventry{2008--...}{Executive Committee member}{}{\small{Organization of scientist-artist animations to popularize science towards a large audience}}{}{} % arguments 3 to 6 are optional
+
+%\subsection {Estigma}
+%\cvlistitem[]{Association des Etudiants et Doctorants en Sciences Cognitives du Grand Lyon, {\textit{www.estigma.fr}}}
+%\cventry{2005--2006}{Estigma - Association des Etudiants et Doctorants en Sciences Cognitives du Grand Lyon} {}{}{\textit{www.estigma.fr}}{}  % arguments 3 to 6 are optional
+
+\subsection{Interests}
+\cvlistdoubleitem[\textbullet]{Sports (hiking, moutaineering, horse ridding, climbing)}{Meditation, yoga}
+\cvlistdoubleitem[\textbullet]{Music (polyphonic singing, clarinet)}{Traveling}
+\cvlistdoubleitem[\textbullet]{Reading}{ }
+
+% Publications from a BibTeX file
+
+%\nocite{*}
+%\bibliographystyle{plain}
+%\bibliography{~/Bureau/latex/CV/publication-claire.bib}       % 'publications' is the name of a BibTeX file
+
+\end{document}
+
+
+%% end of file `template_en.tex'.
