@@ -30,14 +30,19 @@ with open("publications.bib", 'r') as bibfile:
     #bp = BibTexParser(bibfile, customization=homogeneize_latex_encoding)
     bp = BibTexParser(bibfile)
 
+publis = bp.get_entry_list()
 
-dissertation = [a for a in bp.get_entry_list() if a["type"] == "phdthesis"]
+shorts = sorted([a for a in publis if ('note' in a and 'Short' in a['note'])], key=lambda i: i["year"], reverse = True)
 
-confs = sorted([a for a in bp.get_entry_list() if a['type']  in ['conference', 'inproceedings']], key=lambda i: i["year"], reverse = True)
+publis = [p for p in publis if p not in shorts]
 
-journals = sorted([a for a in bp.get_entry_list() if a['type']  in ['article']], key=lambda i: i['year'], reverse = True)
+dissertation = [a for a in publis if a["type"] == "phdthesis"]
 
-bookchapters = sorted([a for a in bp.get_entry_list() if a['type']  in ['inbook']], key=lambda i: i['year'], reverse = True)
+confs = sorted([a for a in publis if a['type']  in ['conference', 'inproceedings']], key=lambda i: i["year"], reverse = True)
+
+journals = sorted([a for a in publis if a['type']  in ['article']], key=lambda i: i['year'], reverse = True)
+
+bookchapters = sorted([a for a in publis if a['type']  in ['inbook']], key=lambda i: i['year'], reverse = True)
 
 def format(preamble, items, book = False):
     res  = r"\vspace{1em}\subsection{" + preamble + "}\n"
@@ -54,8 +59,17 @@ def format(preamble, items, book = False):
         elif 'journal' in i:
             booktitle = i["journal"]
 
+        pub = ""
+        if 'isbn' in i:
+            pub = " ISBN:~%s." % i['isbn']
+        elif 'issn' in i:
+            pub = " ISSN:~%s." % i['issn']
+
+        if 'note' in i and i['note'] != "Short":
+            pub += " %s." % (", ".join([t for t in i['note'].split("Short,") if t]).strip())
+
         #res += "\\cvlistitem{%s, \\textbf{%s}, \\textit{%s} %s.}\n" % (", ".join(getnames(author(i)["author"])), i["title"], booktitle, i["year"])
-        res += "\\vspace{0.2em}\\cvlistitem{%s \\\\ \\textbf{%s} \\\\ \\textit{%s} %s.}\n" % (i["author"], i["title"], booktitle, i["year"])
+        res += "\\vspace{0.2em}\\cvlistitem{%s \\\\ \\textbf{%s} \\\\ \\textit{%s} %s.%s}\n" % (i["author"], i["title"], booktitle, i["year"], pub)
 
     return res
 
@@ -64,5 +78,5 @@ print(format(phd_preamble, dissertation))
 print(format(journal_preamble, journals))
 print(format(conf_preamble, confs))
 print(format(book_preamble, bookchapters, book = True))
-print(format(short_preamble, []))
+print(format(short_preamble, shorts))
 print(endamble)
