@@ -6,6 +6,7 @@ preamble = r"""
 \moderncvtheme[green]{classic}
 \usepackage[utf8]{inputenc}
 \usepackage[scale=0.8]{geometry}
+\usepackage{url}
 \setlength{\hintscolumnwidth}{1.5cm}
 \AtBeginDocument{\recomputelengths}
 \firstname{}
@@ -74,9 +75,9 @@ def format(preamble, items, book = False):
     return res
 
 print(preamble)
-print(format(phd_preamble, dissertation))
 print(format(journal_preamble, journals))
 print(format(conf_preamble, confs))
-print(format(book_preamble, bookchapters, book = True))
 print(format(short_preamble, shorts))
+print(format(book_preamble, bookchapters, book = True))
+print(format(phd_preamble, dissertation))
 print(endamble)
