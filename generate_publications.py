@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 from bibtexparser.bparser import BibTexParser
 from bibtexparser.customization import author, getnames, homogeneize_latex_encoding
 
