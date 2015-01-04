@@ -10,7 +10,7 @@ from bibtexparser.customization import author, getnames, convert_to_unicode
 phd_preamble = "Dissertation"
 journal_preamble = "International peer-reviewed journals"
 book_preamble = "Book chapters"
-conf_preamble = "International peer-reviewed conference article (6-8 pages)"
+conf_preamble = "International peer-reviewed conference articles (6-8 pages)"
 short_preamble = "Short peer-reviewed publications"
 
 
@@ -23,10 +23,11 @@ tex_preamble = r"""
 \usepackage{url}
 \setlength{\hintscolumnwidth}{1.5cm}
 \AtBeginDocument{\recomputelengths}
-\firstname{}
+\firstname{Publications}
 \familyname{}
+\title{S\'everin Lemaignan}
 \begin{document}
-\section{Publications}
+\maketitle
 \emph{h-index: 11} (source: Google Scholar)
 """
 
@@ -82,16 +83,17 @@ journals = sorted([a for a in publis if a['type']  in ['article']], key=lambda i
 bookchapters = sorted([a for a in publis if a['type']  in ['inbook']], key=lambda i: i['year'], reverse = True)
 
 def tex_format(preamble, items, book = False):
-    res  = r"\vspace{1em}\subsection{" + preamble + "}\n"
+
+    papers_underreview = []
+
+    res  = r"\vspace{1em}\section{" + preamble + "}\n"
 
     if book:
         for i in items:
             res += "\\vspace{0.2em}\\cvlistitem{%s \\\\ \\textbf{%s} \\\\ in:\\textit{%s} %s.}\n" % (i["author"], i["chapter"], i["title"], i["year"])
         return res
 
-    for i in items:
-        if 'note' in i and "Under review" in i['note']:
-            continue
+    def render(i):
 
         booktitle = ""
         if 'booktitle' in i:
@@ -105,11 +107,25 @@ def tex_format(preamble, items, book = False):
         elif 'issn' in i:
             pub = " ISSN:~%s." % i['issn']
 
-        if 'note' in i and i['note'] != "Short":
+        if 'note' in i and i['note'] not in ["Short","Under review"]:
             pub += " %s." % (", ".join([t for t in i['note'].split("Short,") if t]).strip())
 
-        #res += "\\cvlistitem{%s, \\textbf{%s}, \\textit{%s} %s.}\n" % (", ".join(getnames(author(i)["author"])), i["title"], booktitle, i["year"])
-        res += "\\vspace{0.2em}\\cvlistitem{%s \\\\ \\textbf{%s} \\\\ \\textit{%s} %s.%s}\n" % (i["author"], i["title"], booktitle, i["year"], pub)
+        #return "\\cvlistitem{%s, \\textbf{%s}, \\textit{%s} %s.}\n" % (", ".join(getnames(author(i)["author"])), i["title"], booktitle, i["year"])
+        return "\\vspace{0.2em}\\cvlistitem{%s \\\\ \\textbf{%s} \\\\ \\textit{%s} %s.%s}\n" % (i["author"], i["title"], booktitle, i["year"], pub)
+
+
+    for i in items:
+        if 'note' in i and "Under review" in i['note']:
+            papers_underreview.append(i)
+            continue
+        res += render(i)
+
+    if papers_underreview:
+        res  += r"\vspace{1em}\subsection{Under review}" + "\n"
+
+        for i in papers_underreview:
+            res += render(i)
+
 
     return res
 
