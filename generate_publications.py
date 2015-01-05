@@ -7,10 +7,28 @@ import bibtexparser
 from bibtexparser.bparser import BibTexParser
 from bibtexparser.customization import author, getnames, convert_to_unicode 
 
+separate_short = True
+
+def usage():
+    print(sys.argv[0] + " [--no-shorts] > list.tex")
+
+if len(sys.argv) >= 2:
+    if "no-shorts" in sys.argv[1]:
+        separate_short = False
+    else:
+        usage()
+        sys.exit(1)
+
+
 phd_preamble = "Dissertation"
 journal_preamble = "International peer-reviewed journals"
 book_preamble = "Book chapters"
-conf_preamble = "International peer-reviewed conference articles (6-8 pages)"
+
+if separate_short:
+    conf_preamble = "International peer-reviewed conference articles (6-8 pages)"
+else:
+    conf_preamble = "International peer-reviewed conference articles"
+
 short_preamble = "Short peer-reviewed publications"
 
 
@@ -70,9 +88,9 @@ with open("publications.bib", 'r') as bibfile:
 
 publis = bp.entries
 
-shorts = sorted([a for a in publis if ('note' in a and 'Short' in a['note'])], key=lambda i: i["year"], reverse = True)
-
-publis = [p for p in publis if p not in shorts]
+if separate_short:
+    shorts = sorted([a for a in publis if ('note' in a and 'Short' in a['note'])], key=lambda i: i["year"], reverse = True)
+    publis = [p for p in publis if p not in shorts]
 
 dissertation = [a for a in publis if a["type"] == "phdthesis"]
 
@@ -107,7 +125,7 @@ def tex_format(preamble, items, book = False):
         elif 'issn' in i:
             pub = " ISSN:~%s." % i['issn']
 
-        if 'note' in i and i['note'] not in ["Short","Under review"]:
+        if 'note' in i and i['note'] not in ["Short", "Under review"]:
             pub += " %s." % (", ".join([t for t in i['note'].split("Short,") if t]).strip())
 
         #return "\\cvlistitem{%s, \\textbf{%s}, \\textit{%s} %s.}\n" % (", ".join(getnames(author(i)["author"])), i["title"], booktitle, i["year"])
@@ -178,7 +196,8 @@ def html_format(preamble, items, book = False):
 print(tex_preamble)
 sys.stdout.write(tex_format(journal_preamble, journals))
 print(tex_format(conf_preamble, confs))
-print(tex_format(short_preamble, shorts))
+if separate_short:
+    print(tex_format(short_preamble, shorts))
 print(tex_format(book_preamble, bookchapters, book = True))
 print(tex_format(phd_preamble, dissertation))
 print(tex_endamble)
