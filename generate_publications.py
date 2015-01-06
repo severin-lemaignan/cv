@@ -120,10 +120,14 @@ def tex_format(preamble, items, book = False):
             booktitle = i["journal"]
 
         pub = ""
-        if 'isbn' in i:
-            pub = " ISBN:~%s." % i['isbn']
-        elif 'issn' in i:
-            pub = " ISSN:~%s." % i['issn']
+        if 'doi' in i:
+            pub +=" DOI:~\\texttt{%s}." % i['doi'].replace("_", "\\_")
+        else:
+            if 'isbn' in i:
+                pub = " ISBN:~%s." % i['isbn']
+            elif 'issn' in i:
+                pub = " ISSN:~%s." % i['issn']
+
 
         if 'note' in i and i['note'] not in ["Short", "Under review"]:
             pub += " %s." % (", ".join([t for t in i['note'].split("Short,") if t]).strip())
