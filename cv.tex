@@ -1,12 +1,19 @@
 
-\documentclass[10pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\documentclass[10pt,a4paper]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
 % moderncv themes
 %\moderncvtheme[green]{casual}                 % optional argument are 'blue' (default), 'orange', 'red', 'green', 'grey' and 'roman' (for roman fonts, instead of sans serif fonts)
 \moderncvtheme[green]{classic}                % idem
+\definecolor{color0}{rgb}{0,0,0}% black
+\definecolor{color1}{rgb}{0.38,0.69,0.19}% green
+\definecolor{color2}{rgb}{0.45,0.45,0.45}% dark grey
 
-% character encoding
-\usepackage[utf8]{inputenc}                   % replace by the encoding you are using
+
+
+\usepackage{fontspec}
+%\setmainfont[ItalicFont = Flama-Italic]{FlamaLight}
+\setmainfont[Path=/home/lemaigna/.fonts/,BoldFont=FlamaMedium,ItalicFont=Flama-Italic]{FlamaLight}
+
 
 % adjust the page margins
 \usepackage[scale=0.8]{geometry}
@@ -17,6 +24,8 @@
 % personal data
 \firstname{Séverin}
 \familyname{Lemaignan}
+\renewcommand*{\namefont}{\fontsize{30}{40}\mdseries\upshape}
+
 \title{Post-doctoral Researcher, \newline {\Large Cognition for Human-Robot Interaction}}               % optional, remove the line if not wanted
 %\address{LAAS-CNRS}{31077 Toulouse}    % optional, remove the line if not wanted
 
@@ -24,7 +33,7 @@
 %\phone{phone (optional)}                      % optional, remove the line if not wanted
 %\fax{fax (optional)}                          % optional, remove the line if not wanted
 \email{severin.lemaignan@epfl.ch}                      % optional, remove the line if not wanted
-\extrainfo{\url{http://academia.skadge.org} \\ 31 years old}{}    % optional, remove the line if not wanted
+\extrainfo{\url{http://academia.skadge.org} \\ 32 years old}{}    % optional, remove the line if not wanted
 
 \photo[80pt]{id2.jpg}                         % '64pt' is the height the picture must be resized to and 'picture' is the name of the picture file; optional, remove the line if not wanted
 %\quote{Doctorante en Sciences Cognitives}                 % optional, remove the line if not wanted
@@ -67,10 +76,9 @@ awarded CNRS' \textbf{Best PhD in Robotics 2012} \\ Supervisors: Pr. Rachid Alam
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Awards and Honors}
 
-\cventry{}{}{}{}{}{
+\cvitem{}{
     \begin{itemize}
-        \item \textbf{Best Video on Artificial Intelligence Award}, AAAI'2015
-        \item \textbf{Excellence Bonus}, EPFL 2014
+        \item \textbf{AAAI 2015 Best Video Award in Artificial Intelligence}
         \item \textbf{Best Late Breaking Report Award}, HRI'2014
         \item \underline{\textbf{Best PhD in Robotics}}, Groupe de Recherche Robotique, CNRS 2012
         \item \underline{\smash{\textbf{PhD with High Disctinction}}} (``Summa Cum Laude''), TU Munich 2012
