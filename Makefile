@@ -21,7 +21,7 @@ bib: $(TARGET:.tex=.aux)
 
 paper: $(TARGET) $(SVG:.svg=.pdf) $(DOT:.dot=.pdf)
 
-	TEXFONTS=:./fonts TEXINPUTS=:./fonts:./sty lualatex $(TARGET)
+	TEXINPUTS=:./sty lualatex $(TARGET)
 
 clean:
 	rm -f *.aux *.log *.snm *.out *.toc *.nav *intermediate *~ *.glo *.ist $(SVG:.svg=.pdf) $(DOT:.dot=.svg) $(DOT:.dot=.pdf)
