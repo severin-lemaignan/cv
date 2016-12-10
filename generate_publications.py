@@ -92,13 +92,13 @@ if separate_short:
     shorts = sorted([a for a in publis if ('note' in a and 'Short' in a['note'])], key=lambda i: i["year"], reverse = True)
     publis = [p for p in publis if p not in shorts]
 
-dissertation = [a for a in publis if a["type"] == "phdthesis"]
+dissertation = [a for a in publis if a["ENTRYTYPE"] == "phdthesis"]
 
-confs = sorted([a for a in publis if a['type']  in ['conference', 'inproceedings']], key=lambda i: i["year"], reverse = True)
+confs = sorted([a for a in publis if a['ENTRYTYPE']  in ['conference', 'inproceedings']], key=lambda i: i["year"], reverse = True)
 
-journals = sorted([a for a in publis if a['type']  in ['article']], key=lambda i: i['year'], reverse = True)
+journals = sorted([a for a in publis if a['ENTRYTYPE']  in ['article']], key=lambda i: i['year'], reverse = True)
 
-bookchapters = sorted([a for a in publis if a['type']  in ['inbook']], key=lambda i: i['year'], reverse = True)
+bookchapters = sorted([a for a in publis if a['ENTRYTYPE']  in ['inbook']], key=lambda i: i['year'], reverse = True)
 
 def tex_format(preamble, items, book = False):
 
