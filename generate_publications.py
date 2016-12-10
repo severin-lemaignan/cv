@@ -36,6 +36,7 @@ short_preamble = "Short peer-reviewed publications"
 ##############################################
 tex_preamble = r"""
 \documentclass[10pt,a4paper,sans]{moderncv}
+\usepackage[utf8]{inputenc} 
 \moderncvtheme[green]{classic}
 \usepackage[scale=0.8]{geometry}
 \usepackage{url}
@@ -46,7 +47,7 @@ tex_preamble = r"""
 \title{S\'everin Lemaignan}
 \begin{document}
 \maketitle
-\emph{h-index: 11} (source: Google Scholar)
+\emph{h-index: 14} -- \emph{Citations: 861} (source: Google Scholar, checked on 10/12/2016)
 """
 
 tex_endamble = r"""
@@ -80,25 +81,21 @@ html_endamble = r"""
 
 bp = None
 
-with open("publications.bib", 'r') as bibfile:
-    #bp = BibTexParser(bibfile, customization=homogeneize_latex_encoding)
-    parser = BibTexParser()
-    parser.customization = convert_to_unicode
-    bp = bibtexparser.load(bibfile, parser=parser)
+import json
 
-publis = bp.entries
+publis = json.load(open("../academia-website/publications.json"))
 
 if separate_short:
-    shorts = sorted([a for a in publis if ('note' in a and 'Short' in a['note'])], key=lambda i: i["year"], reverse = True)
+    shorts = sorted([a for a in publis if "abstract" in a['type']], key=lambda i: i["year"], reverse = True)
     publis = [p for p in publis if p not in shorts]
 
-dissertation = [a for a in publis if a["ENTRYTYPE"] == "phdthesis"]
+dissertation = [a for a in publis if a["type"] == "dissertation"]
 
-confs = sorted([a for a in publis if a['ENTRYTYPE']  in ['conference', 'inproceedings']], key=lambda i: i["year"], reverse = True)
+confs = sorted([a for a in publis if a['type']  in ['conference', 'inproceedings']], key=lambda i: i["year"], reverse = True)
 
-journals = sorted([a for a in publis if a['ENTRYTYPE']  in ['article']], key=lambda i: i['year'], reverse = True)
+journals = sorted([a for a in publis if a['type']  in ['journal']], key=lambda i: i['year'], reverse = True)
 
-bookchapters = sorted([a for a in publis if a['ENTRYTYPE']  in ['inbook']], key=lambda i: i['year'], reverse = True)
+bookchapters = sorted([a for a in publis if a['type']  in ['chapter']], key=lambda i: i['year'], reverse = True)
 
 def tex_format(preamble, items, book = False):
 
@@ -108,16 +105,12 @@ def tex_format(preamble, items, book = False):
 
     if book:
         for i in items:
-            res += "\\vspace{0.2em}\\cvlistitem{%s \\\\ \\textbf{%s} \\\\ in:\\textit{%s} %s.}\n" % (i["author"], i["chapter"], i["title"], i["year"])
+            res += "\\vspace{0.2em}\\cvlistitem{%s \\\\ \\textbf{%s} \\\\ %s.}\n" % (", ".join(i["authors"]), i["title"], i["year"])
         return res
 
     def render(i):
 
-        booktitle = ""
-        if 'booktitle' in i:
-            booktitle = i["booktitle"]
-        elif 'journal' in i:
-            booktitle = i["journal"]
+        booktitle = i["venue"]
 
         pub = ""
         if 'doi' in i:
@@ -133,10 +126,12 @@ def tex_format(preamble, items, book = False):
             pub += " %s." % (", ".join([t for t in i['note'].split("Short,") if t]).strip())
 
         #return "\\cvlistitem{%s, \\textbf{%s}, \\textit{%s} %s.}\n" % (", ".join(getnames(author(i)["author"])), i["title"], booktitle, i["year"])
-        return "\\vspace{0.2em}\\cvlistitem{%s \\\\ \\textbf{%s} \\\\ \\textit{%s} %s.%s}\n" % (i["author"], i["title"], booktitle, i["year"], pub)
+        return "\\vspace{0.2em}\\cvlistitem{%s \\\\ \\textbf{%s} \\\\ \\textit{%s} %s.%s}\n" % (", ".join(i["authors"]), i["title"], booktitle, i["year"], pub)
 
 
     for i in items:
+        if 'note' in i and "not peer-reviewed" in i['note']:
+            continue
         if 'note' in i and "Under review" in i['note']:
             papers_underreview.append(i)
             continue
