@@ -12,7 +12,8 @@
 
 \usepackage{fontspec}
 %\setmainfont[ItalicFont = Flama-Italic]{FlamaLight}
-\setmainfont[BoldFont=FlamaMedium]{FlamaLight}
+\setmainfont{Flama}[Extension=.otf,UprightFont=*Light,BoldFont=*Medium,ItalicFont=*Italic]
+\setsansfont{Flama}[Extension=.otf,UprightFont=*Light,BoldFont=*Medium,ItalicFont=*Italic]
 
 
 % adjust the page margins
@@ -80,7 +81,7 @@ awarded CNRS' \textbf{Best PhD in Robotics 2012} \\ Supervisors: Pr. Rachid Alam
     \begin{itemize}
         \item \textbf{Best Paper 'Methods and Theory' Award}, HRI'2016
         \item Awarded the prestigious \underline{\textbf{European Marie Sk\l odowska-Curie
-            Fellowship}} to conduct research on Theory of Mind applied
+            Individual Fellowship}} to conduct research on Theory of Mind applied
             to robots
         \item \textbf{AAAI 2015 Best Video Award in Artificial Intelligence}
         \item \textbf{Best Late Breaking Report Award}, HRI'2014
@@ -94,12 +95,13 @@ awarded CNRS' \textbf{Best PhD in Robotics 2012} \\ Supervisors: Pr. Rachid Alam
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Selected Publications}
-\cvline{}{See \href{https://academia.skadge.org/publications}{my website} for the complete list of publications, workshops and seminars.}
+\cvline{}{See \emph{\href{https://academia.skadge.org/publications}{my
+website}} for the complete list of publications, workshops and seminars.}
 \subsection {International peer-reviewed journals}
 \cvlistitem{Lemaignan S., Warnier M., Sisbot E. A., Clodic A., Alami R., \textbf{Artificial Cognition for Social Human-Robot Interaction: An Implementation}, \textit{Artificial Intelligence}, 2016.}
 \cvlistitem{Lemaignan S., Jacq A. and Hood D., Garcia F., Dillenbourg P., \textbf{Learning by Teaching a Robot: The Case of Handwriting}, \textit{IEEE Robotics and Automation Magazine}, 2016.}
 \cvlistitem{Lemaignan S., Ros R., Sisbot E. A., Alami R., Beetz M., \textbf{Grounding the Interaction: Anchoring Situated Discourse in Everyday Human-Robot Interaction}, \textit{International Journal of Social Robotics}, 2011.}
-\subsection {International peer-reviewed conference articles (6-8 pages)}
+\subsection {International peer-reviewed conference articles}
 \cvlistitem{Lemaignan S., Garcia F., Jacq A., Dillenbourg P., \textbf{From Real-time Attention Assessment to “With-me-ness” in Human-Robot Interaction}, \textit{HRI}, 2016. \textbf{Best Paper Award}}
 \cvlistitem{Lemaignan S., Ros R., Alami R., Beetz M., \textbf{What are you talking about? Grounding dialogue in a perspective-aware robotic architecture}, \textit{ROMAN}, 2011.}
 \cvlistitem{Lemaignan S.,  Ros R., Mösenlechner L., Alami R., Beetz M., \textbf{ORO, a knowledge management module for cognitive architectures in robotics}, \textit{IROS} 2010.}
@@ -110,22 +112,26 @@ awarded CNRS' \textbf{Best PhD in Robotics 2012} \\ Supervisors: Pr. Rachid Alam
 %\subsection{Vocational}
 \cventry{}{Students supervision}{}{}{}{
     \begin{itemize}
-        \item C. Wallbridge (PhD, 2016-): \emph{Spatial Reasoning for Child-Robot Interacion}
+        \item C. Wallbridge (PhD, 2016-): \emph{Spatial reasoning for Child-Robot Interacion}
         \item E. Senft (PhD, 2015-): \emph{Machine learning approaches to social human-robot shared control}
-        \item F. Garcia (Master, 2015): \emph{Real-time attention assessment}
+        \item F. Garcia (MSc, 2015): \emph{Real-time attention assessment}
         \item A. Jacq (PhD, 2014-2015): \emph{Mutual modeling and repair strategies in HRI}
-        \item A. Özgür (PhD, 2014-2015): \emph{Cellulo: paper robots for large-scale robotic deployments in schools}
-        \item D. Hood (Master, 2014): \emph{CoWriter project: Getting Nao to write on a tactile tablet}
+        \item A. Özgür (PhD, 2014-2015): \emph{Cellulo: haptic robotics for learning}
+        \item D. Hood (MSc, 2014): \emph{CoWriter project: Getting Nao to write on a tactile tablet}
         \item S. Chandra (PhD, 2013-2014): \emph{CoWriter project: learning by teaching handwriting to a robot}
         \item J. Fink (PhD, 2013-2014): \emph{Long-term acceptance of robots in daily life, Anthropomorphism}
-        \item P. Tsemengue, M. Chouayakh (Master, 2010): \emph{The Dialogs natural language processor}
+        \item P. Tsemengue, M. Chouayakh (MSc, 2010): \emph{Natural language
+            processing \& understanding}
     \end{itemize}
 }
 
 \cventry{2016}{Lecturer}{Plymouth University}{}{}{Humanoid \& Mobile Robots
-(Kalman filtering, bipedal walking, localisation and planning, control architectures,...)}
+(including Kalman filtering, bipedal walking, localisation and planning, control
+architectures)}
 \cventry{2013--2016}{Guest lectures}{Plymouth University, EPFL}{}{}{RGB-D cameras for HRI, Introduction to computer graphics \& 3D modelling.}
-\cventry{2008--2016}{Support lectures in robotics}{Plymouth University, EPFL, LAAS-CNRS, Université de Toulouse}{}{}{ROS, robotic simulation, ontologies, Python, software development.}
+\cventry{2008--2016}{Support lectures in robotics}{Plymouth University, EPFL,
+LAAS-CNRS, Université de Toulouse}{}{}{ROS, robotic simulation, ontologies,
+Python, software engineering.}
 \cventry{2008--2011}{Teaching assistant}{INSA Toulouse, Écoles des Mines de Paris}{}{}{Prolog, Ontology Modeling, Java, ADA, SQL, Mechatronics.}
 %\cventry{2006--}{Educative Robotics Trainings}{}{}{}{As head of the Educational Robotics department at the non-for-profit Planète Sciences organization, I've tutored numerous classes on Educational Robotics with teachers and science communicators.}      % arguments 3 to 6 are optional
 
@@ -136,16 +142,15 @@ awarded CNRS' \textbf{Best PhD in Robotics 2012} \\ Supervisors: Pr. Rachid Alam
 \cventry{2016}{Associate Editor}{IROS 2016}{}{}{}
 \cventry{2016}{Programme Committee}{HRI 2016} {} {} {}
 \cventry{2016}{Programme Chair, Workshop on Cognitive Architectures for
-Social HRI}{HRI 2016}
-{\url{https://sites.google.com/site/cogarch4socialhri2016/}} {} {} 
+Social HRI}{HRI 2016} {} {} {} 
 \cventry{2013}{Steering Committee, Intl. Workshop on MORSE for HRI}{HRI 2014} {} {} {} 
 \cventry{2013}{Programme Committee, Workshop on Developmental Social Robotics}{IROS 2013} {\url{http://devsor2013.sciencesconf.org}} {} {} 
 \cventry{2012}{Steering Committee, Intl. Workshop on MORSE and its Applications}{} {} {} {} 
-\cventry{2008--2009}{Steering Committee, Cognitive Sciences' Young Researchers Conference 2009}{} {\url{http://fresco.risc.cnrs.fr/cjcsc2009/}} {} {}
+%\cventry{2008--2009}{Steering Committee, Cognitive Sciences' Young Researchers Conference 2009}{} {\url{http://fresco.risc.cnrs.fr/cjcsc2009/}} {} {}
 \subsection {Main Outreach Actions}
 \cventry{2011}{'Roboscopie' Human-Robot public theater performance}{Science Day'11}{}{}{\url{http://bit.ly/1LQpNWA}}  % arguments 3 to 6 are optional
 \cventry{2008--2012}{Robotics Science Day Coordinator}{LAAS-CNRS}{}{}{}  % arguments 3 to 6 are optional
-\cventry{2008--2011}{Vice President of Toulouse's Cognitive Science Student Association }{}{}{}{\url{www.incognu.fr}}  % arguments 3 to 6 are optional
+\cventry{2008--2011}{Vice-president of Toulouse's Cognitive Science Student Association }{}{}{}{\url{www.incognu.fr}}  % arguments 3 to 6 are optional
 
 \cventry{2008--2009}{Science communicator at South African \textit{SciFest} festival}{}{}{} {}
 \cventry{1997--2012}{Leading role at 'Planète Sciences' non-profit}{Head of the Robotics Department 2006-2007 -- Executive Committee 2008-2011 -- Science Camps leader (with \textit{BAFA} certification) -- Coordinator on the \textit{EUROBOT} Robotic Competition  }{}{}{\url{http://www.planete-sciences.org/}}
@@ -168,7 +173,7 @@ Social HRI}{HRI 2016}
     \end{itemize}
         }    {Programming}{
         \begin{itemize}
-        \item Python, C++, Haskell, Prolog, SmallTalk
+        \item Python, modern C++, Haskell, Prolog, SmallTalk
         \item Open-source enthusiast\\ GitHub: \texttt{github.com/severin-lemaignan}
 \end{itemize}
 }
