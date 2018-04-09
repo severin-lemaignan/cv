@@ -47,7 +47,7 @@ tex_preamble = r"""
 \title{S\'everin Lemaignan}
 \begin{document}
 \maketitle
-\emph{h-index: 14} -- \emph{Citations: 861} (source: Google Scholar, checked on 10/12/2016)
+\emph{h-index: 18} -- \emph{Citations: 1283} (source: Google Scholar, checked on 09/04/2018)
 """
 
 tex_endamble = r"""
@@ -114,7 +114,7 @@ def tex_format(preamble, items, book = False):
 
         pub = ""
         if 'doi' in i:
-            pub +=" DOI:~\\texttt{%s}." % i['doi'].replace("_", "\\_")
+            pub +=" DOI:~\\texttt{{\\href{{https://doi.org/{0}}}{{{0}}}}}.".format(i['doi'].replace("_", "\\_"))
         else:
             if 'isbn' in i:
                 pub = " ISBN:~%s." % i['isbn']
