@@ -9,12 +9,16 @@ from bibtexparser.customization import author, getnames, convert_to_unicode
 
 separate_short = True
 
+citelist = False
+
 def usage():
-    print(sys.argv[0] + " [--no-shorts] > list.tex")
+    print(sys.argv[0] + " [--no-shorts] [--cite-list] > list.tex")
 
 if len(sys.argv) >= 2:
     if "no-shorts" in sys.argv[1]:
         separate_short = False
+    if "cite-list" in sys.argv[1]:
+        citelist = True
     else:
         usage()
         sys.exit(1)
@@ -44,10 +48,10 @@ tex_preamble = r"""
 \AtBeginDocument{\recomputelengths}
 \firstname{Publications}
 \familyname{}
-\title{S\'everin Lemaignan}
+\title{Séverin Lemaignan}
 \begin{document}
 \maketitle
-\emph{h-index: 14} -- \emph{Citations: 861} (source: Google Scholar, checked on 10/12/2016)
+\emph{h-index: 19} -- \emph{Citations: 1328} (source: Google Scholar, checked on 18/05/2018)
 """
 
 tex_endamble = r"""
@@ -96,6 +100,17 @@ confs = sorted([a for a in publis if a['type']  in ['conference', 'inproceedings
 journals = sorted([a for a in publis if a['type']  in ['journal']], key=lambda i: i['year'], reverse = True)
 
 bookchapters = sorted([a for a in publis if a['type']  in ['chapter']], key=lambda i: i['year'], reverse = True)
+
+def cite_list(preamble, items):
+    res  = r"\section{" + preamble + "}\n"
+    res += r"\begin{itemize}" + "\n"
+    for i in items:
+        res += "  \\item \\textbf{%s}~\\cite{%s}\n" % (i["title"], i["id"])
+
+    res += r"\end{itemize}" + "\n"
+    return res
+
+
 
 def tex_format(preamble, items, book = False):
 
@@ -192,13 +207,23 @@ def html_format(preamble, items, book = False):
 #pages={{183-185}},
 #
 
+
 print(tex_preamble)
-sys.stdout.write(tex_format(journal_preamble, journals))
-print(tex_format(conf_preamble, confs))
-if separate_short:
-    print(tex_format(short_preamble, shorts))
-print(tex_format(book_preamble, bookchapters, book = True))
-print(tex_format(phd_preamble, dissertation))
+
+if citelist:
+    sys.stdout.write(cite_list(journal_preamble, journals))
+    print(cite_list(conf_preamble, confs))
+    if separate_short:
+        print(cite_list(short_preamble, shorts))
+    print(cite_list(book_preamble, bookchapters))
+    print(cite_list(phd_preamble, dissertation))
+else:
+    sys.stdout.write(tex_format(journal_preamble, journals))
+    print(tex_format(conf_preamble, confs))
+    if separate_short:
+        print(tex_format(short_preamble, shorts))
+    print(tex_format(book_preamble, bookchapters, book = True))
+    print(tex_format(phd_preamble, dissertation))
 print(tex_endamble)
 
 #print(html_format(journal_preamble, journals))
