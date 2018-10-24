@@ -48,10 +48,10 @@ tex_preamble = r"""
 \AtBeginDocument{\recomputelengths}
 \firstname{Publications}
 \familyname{}
-\title{Séverin Lemaignan}
+\title{S\'everin Lemaignan}
 \begin{document}
 \maketitle
-\emph{h-index: 19} -- \emph{Citations: 1328} (source: Google Scholar, checked on 18/05/2018)
+\emph{h-index: 20} -- \emph{Citations: 1536} (source: Google Scholar, checked on 24/10/2018)
 """
 
 tex_endamble = r"""
@@ -129,7 +129,7 @@ def tex_format(preamble, items, book = False):
 
         pub = ""
         if 'doi' in i:
-            pub +=" DOI:~\\texttt{%s}." % i['doi'].replace("_", "\\_")
+            pub +=" DOI:~\\texttt{{\\href{{https://doi.org/{0}}}{{{0}}}}}.".format(i['doi'].replace("_", "\\_"))
         else:
             if 'isbn' in i:
                 pub = " ISBN:~%s." % i['isbn']
