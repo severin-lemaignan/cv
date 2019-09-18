@@ -1,0 +1,206 @@
+
+\documentclass[10pt,a4paper]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+%\moderncvtheme[green]{casual}                 % optional argument are 'blue' (default), 'orange', 'red', 'green', 'grey' and 'roman' (for roman fonts, instead of sans serif fonts)
+\moderncvtheme[black]{classic}                % idem
+\definecolor{color0}{rgb}{0,0,0}% black
+%\definecolor{color1}{rgb}{0.38,0.69,0.19}% green
+%\definecolor{color1}{rgb}{0.38,0.69,0.19}% green
+\definecolor{color2}{rgb}{0.45,0.45,0.45}% dark grey
+
+
+
+\usepackage{fontspec}
+%\setmainfont[ItalicFont = Flama-Italic]{FlamaLight}
+\setmainfont{Flama}[Extension=.otf,UprightFont=*Light,BoldFont=*Medium,ItalicFont=*Italic]
+\setsansfont{Flama}[Extension=.otf,UprightFont=*Light,BoldFont=*Medium,ItalicFont=*Italic]
+
+
+% adjust the page margins
+\usepackage[scale=0.9]{geometry}
+\setlength{\hintscolumnwidth}{2cm}						% if you want to change the width of the column with the dates
+%\AtBeginDocument{\setlength{\maketitlenamewidth}{6 cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+\AtBeginDocument{\recomputelengths}                     % required when changes are made to page layout lengths
+
+% personal data
+\firstname{Séverin}
+\familyname{Lemaignan}
+\renewcommand*{\namefont}{\fontsize{30}{40}\mdseries\upshape}
+
+\title{Cognition for Social Robotics}               % optional, remove the line if not wanted
+%\address{LAAS-CNRS}{31077 Toulouse}    % optional, remove the line if not wanted
+
+\phone{+44 117 328 5478}                    % optional, remove the line if not wanted
+\phone{+44 790 798 6893 (M)}                    % optional, remove the line if not wanted
+%\phone{phone (optional)}                      % optional, remove the line if not wanted
+%\fax{fax (optional)}                          % optional, remove the line if not wanted
+\email{severin.lemaignan@brl.ac.uk}                      % optional, remove the line if not wanted
+\extrainfo{\url{https://academia.skadge.org} \\ 36 years old}{}    % optional, remove the line if not wanted
+
+\photo[80pt]{portrait2-bw.jpg}                         % '64pt' is the height the picture must be resized to and 'picture' is the name of the picture file; optional, remove the line if not wanted
+%\quote{Doctorante en Sciences Cognitives}                 % optional, remove the line if not wanted
+
+%\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+
+
+\maketitle
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cvline{Scientific Focus}{\textbf{Robot cognition and decision making for
+safe social interaction}:
+    data-driven understanding of social interactions; explainable AI; ethics of safe human-robot interactions; robust human-robot multi-modal interaction; symbolic and
+ sub-symbolic knowledge representation.}
+\cvline{Keywords}{\textbf{Social Robotics}, \textbf{Robotic Cognition}, \textbf{Safe \& Robust Human-Robot Interaction}, \textbf{Cognitive Architectures}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Education \& Research Activities}
+%\cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}
+\cventry{Apr. 2018--}{Senior Research Fellow in Robotics and Artificial
+Intelligence}{Bristol Robotics Lab, United Kingdom}{}{}{Supervision of the Human-Robot Interaction research group; Supervision of the Driverless Vehicle research group. \\Directly managing 20+ students and early career researchers.}
+\cventry{2017--2018}{Lecturer in Robotics}{Plymouth University, Plymouth, United Kingdom}{}{}{}
+\cventry{2015--2017}{EU Marie Sk\l odowska-Curie Post-doctoral fellow}{Centre for Neural Systems and Robotics, Plymouth University, Plymouth, United Kingdom}{}{}{Development and Implementation of a Theory of Mind for robots.}
+\cventry{2013--2015}{Post-doctoral fellow}{CHILI, EPFL, Lausanne,
+Switzerland}{}{}{Interaction with Robots in Learning Environments -- Supervision of the robotic group.}
+\cventry{2012--2013 }{Post-doctoral fellow}{LAAS-CNRS, Toulouse, France}{}{}{Spatial and Temporal Reasoning for Cognitive Robotic Architectures.}
+\cventry{2008--2012 }{Joint German-French PhD in Cognitive Robotics}{LAAS-CNRS,
+Toulouse, France / Technical University of Munich, Germany}{}{}{\textbf{with High Distinction} ``Summa Cum Laude'' --
+awarded CNRS' \textbf{Best PhD in Robotics 2012} \\ Supervisors: Pr. Rachid
+Alami, CNRS; Pr. Michael Beetz, TUM.}
+\cventry{2006--2007}{Research Engineer}{INRIA, Paris, France}{}{}{Development of semantic-aware control architectures for autonomous vehicles.}
+\cventry{2002--2006}{Joint German-French MSc of Engineering}{Karlsruhe Institute
+of Technology / ENSAM ParisTech}{}{}{}
+\cventry{2004--2005}{MSc Artificial Intelligence for Learning Technologies}{University Paris V, College of Mathematics and Computer Sciences}{}{With Honours}{}% arguments 3 to are optional
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section {Selected Fellowships \& Grants}
+
+\cventry{2019--2022}{InnovateUK}{CAV Forth -- Verification for Connected Autonomous Vehicles}{\newline Principal Investigator, \pounds 600K}{}{}
+\cventry{2018--2019}{University of the West of England}{Robots in Human Environment}{\newline Principal Investigator, \pounds 2.5K}{}{}
+\cventry{2015--2017}{EU H2020 Marie Sk\l odowska-Curie Individual Fellowship}{}{\newline Principal Investigator, € 195K}{}{}
+
+%\cventry{2019--2022}{[under review] EU H2020}{AIROS -- ROS for safe and robust HRI}{\newline Co-Investigator,  €4M}{}{}
+%\cventry{2019--2022}{[under review] EPSRC}{ERRO -- Error recogntion for safe HRI}{\newline Co-Investigator, \pounds 700K}{}{}
+%\cventry{2019--2022}{[under review] EPSRC}{ROBIN -- Neurofeedback and Social Robotics}{\newline Principal Investigator, \pounds 300K}{}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Awards and Honours}
+
+\cventry{HRI'2017}{Best Paper Award 'Design'} {} {} {} {}
+\cventry{HRI'2016}{Best Paper Award 'Methods and Theory'} {} {} {} {}
+\cventry{AAAI'2015}{Best Video Award in Artificial Intelligence} {} {} {} {}
+\cventry{AAAI'2014}{Best Late Breaking Report Award} {} {} {} {}
+\cventry{2012}{\underline{\textbf{Best PhD in Robotics}}} {CNRS} {}{}{}
+\cventry{2012}{\underline{\textbf{PhD with High Distinction}}} {(``Summa Cum Laude''), TU Munich} {} {} {}
+\cventry{Ro-Man'2010}{Best Paper Award}{}{}{}{}
+%\cvlistitem{\textbf{Gold Medal} (top ten students), ENSAM ParisTech 2006}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Selected Recent Publications}
+
+\cvline{}{As of Sept 2019, 70+ publications, 1900+ citations, $h$-index = 23,
+$i10$-index=38 \emph{\scriptsize(Google Scholar)}.\newline
+\emph{\href{https://academia.skadge.org/publications}{$\rightarrow$ Link to complete list of
+publications, workshops and seminars}}.}
+
+
+\vspace{0.8em}\cvlistitem{Senft, E., Lemaignan, S., Baxter, P., Bartlett, M., Belpaeme, T. \textbf{Teaching robots social autonomy from in situ human guidance} \textit{Science Robotics} 2019.}
+\vspace{0.2em}\cvlistitem{Sallami, Y., Lemaignan, S., Clodic, A., Alami, R. \textbf{Simulation-based physics reasoning for consistent scene estimation in an HRI context} \textit{IEEE IROS} 2019.}
+\vspace{0.2em}\cvlistitem{Wallbridge, C., Lemaignan, S., Senft, E., Belpaeme, T. \textbf{Generating Spatial Referring Expressions in a Social Robot: Dynamic vs Non-Ambiguous} \textit{Frontiers in AI and Robotics} 2019.}
+\vspace{0.2em}\cvlistitem{Winkle, K., Lemaignan, S., Caleb-Solly, P., Leonards, U., Turton, A., Bremner, P. \textbf{Effective Persuasion Strategies for Socially Assistive Robots} \textit{ACM/IEEE HRI} 2019.}
+\vspace{0.2em}\cvlistitem{Bartlett, M., Edmunds, C. E. R., Belpaeme, T., Thill, S., Lemaignan, S. \textbf{What Can You See? Identifying Cues on Internal States from the Kinematics of Social Interactions} \textit{Frontiers in AI and Robotics} 2019.}
+\vspace{0.2em}\cvlistitem{Lemaignan, S., Edmunds E. R., C., Senft, E., Belpaeme, T. \textbf{The PInSoRo dataset: Supporting the data-driven study of child-child and child-robot social dynamics} \textit{PLOS ONE} 2018.}
+\vspace{0.2em}\cvlistitem{Senft, E., Baxter, P., Kennedy, J., Lemaignan, S., Belpaeme, T. \textbf{Supervised Autonomy for Online Learning in Human-Robot Interaction} \textit{Pattern Recognition Letters} 2017.}
+\vspace{0.2em}\cvlistitem{Lemaignan, S., Warnier, M., Sisbot, E.A., Clodic, A., Alami, R. \textbf{Artificial Cognition for Social Human-Robot Interaction: An Implementation} \textit{Artificial Intelligence} 2017.}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Supervision \& Teaching Experience}
+%\subsection{Vocational}
+\cventry{}{Students
+supervision}{}{Currently supervising 10+ PhD and MSc students, \href{https://academia.skadge.org/teaching\#supervision}{(click here for
+full list)}}{}{
+    \begin{itemize}
+        \item N. Webb (PhD, 2019-): \emph{Data-Driven Human Robot Interaction}
+        \item L. Wijnen (PhD, 2019-): \emph{Trust in Human Robot Interaction}
+        \item M. Bartlett (PhD, 2017-): \emph{Data-Driven Social Robotics}
+        \item K. Winkle (PhD, 2016-): \emph{Persuasive human-robot interactions}
+        \item C. Wallbridge (PhD, 2016-): \emph{Spatial reasoning for Child-Robot Interaction}
+        \item E. Senft (PhD, 2015-2018): \emph{Shared autonomy for social human-robot interactions}
+        \item A. Jacq (PhD, 2014-2015): \emph{Mutual modeling and repair strategies in HRI}
+        \item A. Özgür (PhD, 2014-2015): \emph{Cellulo: haptic robotics for learning}
+        \item S. Chandra (PhD, 2013-2017): \emph{CoWriter project: learning by teaching handwriting to a robot}
+        \item J. Fink (PhD, 2011-2014): \emph{Long-term acceptance of robots in daily life \& anthropomorphism}
+    \end{itemize}
+}
+
+\cventry{2018--}{University of the West of England}{senior lecturer}{}{}{teaching at MSc level; Human-Robot Interaction, data science}
+\cventry{2016--2018}{Plymouth University}{lecturer}{}{}{teaching at BSc \& MSc level
+robotics, including HRI, ROS, Kalman filtering, localisation and planning, control
+architectures}
+\cventry{2018--2016}{Guest lectures \& Seminars}{Plymouth University, EPFL,
+Université de Toulouse}{}{}{ROS, simulation, ontologies,
+Python/C++ software engineering, computer graphics \& 3D modelling.}
+\cventry{2008--2011}{Teaching assistant}{INSA Toulouse, Écoles des Mines de Paris}{}{}{Prolog, Ontology Modeling, Java, ADA, SQL, Mechatronics.}
+%\cventry{2006--}{Educative Robotics Trainings}{}{}{}{As head of the Educational Robotics department at the non-for-profit Planète Sciences organization, I've tutored numerous classes on Educational Robotics with teachers and science communicators.}      % arguments 3 to 6 are optional
+
+\section {Selected outreach activities}
+
+\cventry{2019}{Scientific advisor for the WeTheCurious Bristol's science museum}{City Lab project}{}{}{}  % arguments 3 to 6 are optional
+\cventry{2016--}{UK \& EU Robotics Weeks coordinator}{University of Plymouth, University of the West of England}{}{}{}  % arguments 3 to 6 are optional
+\cventry{2011}{'Roboscopie' Human-Robot public theater performance}{Science Day'11}{}{}{\url{http://bit.ly/1LQpNWA}}  % arguments 3 to 6 are optional
+\cventry{2008--2011}{Toulouse's Cognitive Sciences Students Association}{Co-chair}{}{}{}  % arguments 3 to 6 are optional
+
+\cventry{2008--2009}{South African \textit{SciFest} festival}{Science
+facilitator}{}{} {}
+\cventry{1997--2012}{Executive Committee \& Head of Educational Robotics, Planète
+Sciences}{including coordination of the \textit{EUROBOT} Robotic Competition
+}{}{}{}
+%
+%\subsection{Other Interests}
+%\cvlistdoubleitem{Sports (hiking, mountaineering, climbing)}{Traveling (World Tour in 2007-2008)}
+%\cvlistitem{Music (saxophone)}
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Technical Skills and Spoken Languages}
+
+\cvcomputer{Robotics}{
+    \begin{itemize}
+        \item Expert in cognitive robotics and human-robot interaction
+        \item Expert in symbolic knowledge representation 
+        \item Expert PR2, Pepper, Nao developer
+        \item Contributor to ROS, OpenCV
+        \item Lead dev. MORSE simulator
+    \end{itemize}
+        }    {Programming}{
+        \begin{itemize}
+        \item Python, modern C++, Prolog, SmallTalk
+        \item Deep-learning frameworks: pytorch, TensorFlow
+        \item Open-source enthusiast\\ GitHub: \texttt{github.com/severin-lemaignan}
+\end{itemize}
+}
+%\cvcomputer{Others}{Latex, VIM, Blender.} {GitHub}{ \url{github.com/severin-lemaignan} }
+%\cvcomputer{}{}{}{}
+
+%\subsection{Languages}
+%\cvlanguage{French}{Native}{}
+%%\cvlanguage{English}{Fluent}{TOEIC score 925/990}
+%\cvlanguage{English}{Fluent}{}
+%%\cvlanguage{German}{Advanced}{DSH}
+%\cvlanguage{German}{Advanced}{}
+%%\cvlanguage{Spanish}{Novice}{}
+
+
+
+\end{document}
+
