@@ -51,7 +51,7 @@ tex_preamble = r"""
 \title{S\'everin Lemaignan}
 \begin{document}
 \maketitle
-\emph{h-index: 22} -- \emph{Citations: 1865} (source: Google Scholar, checked on 11/07/2019)
+\emph{h-index: 24} -- \emph{i-10: 38} -- \emph{Citations: 2091} (source: Google Scholar, checked on 21/11/2019)
 """
 
 tex_endamble = r"""
