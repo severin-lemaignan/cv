@@ -1,8 +1,7 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import sys,codecs, locale
-sys.stdout = codecs.getwriter(locale.getpreferredencoding())(sys.stdout)
+import sys
 import bibtexparser
 from bibtexparser.bparser import BibTexParser
 from bibtexparser.customization import author, getnames, convert_to_unicode 
