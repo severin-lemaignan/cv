@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import sys,codecs, locale
-sys.stdout = codecs.getwriter(locale.getpreferredencoding())(sys.stdout)
+#sys.stdout = codecs.getwriter(locale.getpreferredencoding())(sys.stdout)
 import bibtexparser
 from bibtexparser.bparser import BibTexParser
 from bibtexparser.customization import author, getnames, convert_to_unicode 
@@ -12,16 +12,16 @@ separate_short = True
 citelist = False
 
 def usage():
-    print(sys.argv[0] + " [--no-shorts] [--cite-list] > list.tex")
+    print(sys.argv[0] + " [--no-shorts] [--cite-list] [--numbered] > list.tex")
 
 if len(sys.argv) >= 2:
     if "no-shorts" in sys.argv[1]:
         separate_short = False
     if "cite-list" in sys.argv[1]:
         citelist = True
-    else:
-        usage()
-        sys.exit(1)
+else:
+    usage()
+    sys.exit(1)
 
 
 phd_preamble = "Dissertation"
@@ -51,7 +51,7 @@ tex_preamble = r"""
 \title{S\'everin Lemaignan}
 \begin{document}
 \maketitle
-\emph{h-index: 24} -- \emph{i-10: 38} -- \emph{Citations: 2091} (source: Google Scholar, checked on 21/11/2019)
+\emph{h-index: 25} -- \emph{i-10: 40} -- \emph{Citations: 2550} (source: Google Scholar, checked on 31/08/2020)
 """
 
 tex_endamble = r"""
@@ -170,7 +170,6 @@ def html_format(preamble, items, book = False):
     #    return res
 
     for i in items:
-        import pdb;pdb.set_trace()
         res += html_templates[preamble].format(**i)
 
         booktitle = ""
@@ -206,7 +205,6 @@ def html_format(preamble, items, book = False):
 #publisher={{Springer-Verlag}},
 #pages={{183-185}},
 #
-
 
 print(tex_preamble)
 
