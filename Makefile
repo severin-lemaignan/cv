@@ -1,5 +1,5 @@
 
-TARGET=cv.tex cv-2p.tex
+TARGET=cv.tex cv-2p.tex cv-teaching.tex
 
 DOT=$(wildcard figs/*.dot)
 SVG=$(wildcard figs/*.svg)
