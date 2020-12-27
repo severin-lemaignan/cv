@@ -11,17 +11,21 @@ separate_short = True
 
 citelist = False
 
+numbered = False
+
 def usage():
     print(sys.argv[0] + " [--no-shorts] [--cite-list] [--numbered] > list.tex")
 
-if len(sys.argv) >= 2:
-    if "no-shorts" in sys.argv[1]:
+for p in sys.argv[1:]:
+    if p in ["-h", "--help"]:
+        usage()
+        sys.exit(1)
+    if "no-shorts" in p:
         separate_short = False
-    if "cite-list" in sys.argv[1]:
+    if "cite-list" in p:
         citelist = True
-else:
-    usage()
-    sys.exit(1)
+    if "numbered" in p:
+        numbered = True
 
 
 phd_preamble = "Dissertation"
@@ -44,14 +48,15 @@ tex_preamble = r"""
 \moderncvtheme[green]{classic}
 \usepackage[scale=0.8]{geometry}
 \usepackage{url}
+\usepackage{enumitem} % for enumerate [resume]
 \setlength{\hintscolumnwidth}{1.5cm}
 \AtBeginDocument{\recomputelengths}
-\firstname{Publications}
+\firstname{Full list of publications}
 \familyname{}
-\title{S\'everin Lemaignan}
+%\title{S\'everin Lemaignan}
 \begin{document}
 \maketitle
-\emph{h-index: 25} -- \emph{i-10: 40} -- \emph{Citations: 2550} (source: Google Scholar, checked on 31/08/2020)
+\emph{h-index: 26} -- \emph{i-10: 43} -- \emph{Citations: 2750} (source: Google Scholar, checked on 27/12/2020)
 """
 
 tex_endamble = r"""
@@ -103,11 +108,17 @@ bookchapters = sorted([a for a in publis if a['type']  in ['chapter']], key=lamb
 
 def cite_list(preamble, items):
     res  = r"\section{" + preamble + "}\n"
-    res += r"\begin{itemize}" + "\n"
+    if numbered:
+        res += r"\begin{enumerate}[resume]" + "\n"
+    else:
+        res += r"\begin{itemize}" + "\n"
     for i in items:
         res += "  \\item \\textbf{%s}~\\cite{%s}\n" % (i["title"], i["id"])
 
-    res += r"\end{itemize}" + "\n"
+    if numbered:
+        res += r"\end{enumerate}" + "\n"
+    else:
+        res += r"\end{enumerate}" + "\n"
     return res
 
 
@@ -118,9 +129,20 @@ def tex_format(preamble, items, book = False):
 
     res  = r"\vspace{1em}\section{" + preamble + "}\n"
 
+    if numbered:
+        res += r"\begin{enumerate}[resume]" + "\n"
+    else:
+        res += r"\begin{itemize}" + "\n"
+
     if book:
         for i in items:
-            res += "\\vspace{0.2em}\\cvlistitem{%s \\\\ \\textbf{%s} \\\\ %s.}\n" % (", ".join(i["authors"]), i["title"], i["year"])
+            res += "\\item{%s \\\\ \\textbf{%s} \\\\ %s.}\n" % (", ".join(i["authors"]), i["title"], i["year"])
+
+        if numbered:
+            res += r"\end{enumerate}" + "\n"
+        else:
+            res += r"\end{itemize}" + "\n"
+
         return res
 
     def render(i):
@@ -141,7 +163,7 @@ def tex_format(preamble, items, book = False):
             pub += " %s." % (", ".join([t for t in i['note'].split("Short,") if t]).strip())
 
         #return "\\cvlistitem{%s, \\textbf{%s}, \\textit{%s} %s.}\n" % (", ".join(getnames(author(i)["author"])), i["title"], booktitle, i["year"])
-        return "\\vspace{0.2em}\\cvlistitem{%s \\\\ \\textbf{%s} \\\\ \\textit{%s} %s.%s}\n" % (", ".join(i["authors"]), i["title"], booktitle, i["year"], pub)
+        return "\\item{%s \\\\ \\textbf{%s} \\\\ \\textit{%s} %s.%s}\n" % (", ".join(i["authors"]), i["title"], booktitle, i["year"], pub)
 
 
     for i in items:
@@ -158,6 +180,10 @@ def tex_format(preamble, items, book = False):
         for i in papers_underreview:
             res += render(i)
 
+    if numbered:
+        res += r"\end{enumerate}" + "\n"
+    else:
+        res += r"\end{enumerate}" + "\n"
 
     return res
 
