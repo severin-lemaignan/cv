@@ -162,8 +162,8 @@ def tex_format(preamble, items, book = False):
         if 'note' in i and i['note'] not in ["Short", "Under review"]:
             pub += " %s." % (", ".join([t for t in i['note'].split("Short,") if t]).strip())
 
-        #return "\\cvlistitem{%s, \\textbf{%s}, \\textit{%s} %s.}\n" % (", ".join(getnames(author(i)["author"])), i["title"], booktitle, i["year"])
-        return "\\item{%s \\\\ \\textbf{%s} \\\\ \\textit{%s} %s.%s}\n" % (", ".join(i["authors"]), i["title"], booktitle, i["year"], pub)
+        return "\\vspace{0.2em}\\cvlistitem{%s, \\\\ \\textbf{%s}, \\\\ \\textit{%s} %s.%s}\n" % (", ".join(i["authors"]), i["title"], booktitle, i["year"],pub)
+        #return "\\item{%s \\\\ \\textbf{%s} \\\\ \\textit{%s} %s.%s}\n" % (", ".join(i["authors"]), i["title"], booktitle, i["year"], pub)
 
 
     for i in items:
